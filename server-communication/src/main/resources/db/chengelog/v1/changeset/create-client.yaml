@@ -1,0 +1,33 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-client
+      author: Alexey
+      preConditions:
+        - onFail: MARK_RAN
+          or:
+            - not:
+                tableExists:
+                  tableName: client
+      changes:
+        - createTable:
+            tableName: client
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: ip
+                  type: varchar(20)
+                  constraints:
+                    nullable: true
+              - column:
+                  name: name
+                  type: varchar(20)
+                  constraints:
+                    nullable: true
+      rollback:
+        - dropTable:
+            tableName: client
