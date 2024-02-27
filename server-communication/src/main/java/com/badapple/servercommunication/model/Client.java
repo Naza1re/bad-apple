@@ -8,8 +8,10 @@ public class Client {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(name = "ip")
+    private String ip;
 
-
-
+    @Column(name = "name")
+    private String name;
 
 }
