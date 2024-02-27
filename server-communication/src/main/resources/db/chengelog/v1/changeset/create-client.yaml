@@ -30,4 +30,4 @@ databaseChangeLog:
                     nullable: true
       rollback:
         - dropTable:
-            tableName: drivers
+            tableName: client
